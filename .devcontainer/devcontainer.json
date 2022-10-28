@@ -6,7 +6,7 @@
 		"dockerfile": "Dockerfile"
 	},
 	"overrideCommand": false,
-	
+
 	// Forward Jupyter port locally, mark required
 	"forwardPorts": [8888],
 	"portsAttributes": {
@@ -22,13 +22,14 @@
 		// Configure properties specific to VS Code.
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
-			"settings": { 
+			"settings": {
 				"python.defaultInterpreterPath": "/opt/conda/bin/python"
 			},
-			
+
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
+				"wingrunr21.vscode-ruby",
 				"Shopify.ruby-extensions-pack",
 				"ms-toolsai.jupyter",
 				"ms-toolsai.vscode-jupyter-cell-tags"
