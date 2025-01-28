@@ -27,5 +27,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print current directory
-        run: pwd
+      - name: Echo author of the PR
+        run: |
+          echo "Author of the PR: $PR_AUTHOR"
+          echo "Test users: $TEST_USERS"
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          TEST_USERS: ${{ vars.TEST_USERS }}
+
