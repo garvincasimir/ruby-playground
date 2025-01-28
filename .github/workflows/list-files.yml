@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+  pull_request_target:
+    types:
+      - edited
+
 jobs:
   list-files:
     if: ${{ vars.MODE == 'on' }}
@@ -15,12 +19,13 @@ jobs:
 
       - name: List files in the current directory
         run: ls
+
   show-current-directory:
-    if: ${{ vars.MODE == 'off' }}
+    if: contains(fromJSON('["${{ vars.TEST_USERS }}"]'), github.event.pull_request.user.login)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: print current director
+      - name: Print current directory
         run: pwd
