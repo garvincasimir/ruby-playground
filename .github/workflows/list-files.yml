@@ -7,6 +7,7 @@ on:
 
 jobs:
   list-files:
+    if: ${{ vars.MODE == 'on' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,3 +15,12 @@ jobs:
 
       - name: List files in the current directory
         run: ls
+  show-current-directory:
+    if: ${{ vars.MODE == 'off' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: print current director
+        run: pwd
