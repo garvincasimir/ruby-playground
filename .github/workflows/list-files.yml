@@ -29,7 +29,7 @@ jobs:
 
       - name: Echo author of the PR 1
         run: |
-          echo "Author of the PR: $PR_AUTHOR"
+          echo "Author of the PR 2: $PR_AUTHOR"
           echo "Test users: $TEST_USERS"
         env:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
