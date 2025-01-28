@@ -1,0 +1,16 @@
+name: List Files on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  list-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: List files in the current directory
+        run: ls
