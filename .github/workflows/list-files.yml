@@ -31,7 +31,9 @@ jobs:
         run: |
           echo "Author of the PR 2: $PR_AUTHOR"
           echo "Test users: $TEST_USERS"
+          echo "Mode: $MODE"
         env:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           TEST_USERS: ${{ vars.TEST_USERS }}
+          MODE: ${{ vars.MODE }}
 
