@@ -21,7 +21,7 @@ jobs:
         run: ls
 
   show-current-directory:
-    if: contains(fromJSON(vars.TEST_USERS), github.event.pull_request.user.login)
+    if: ${{  vars.MODE == 'all' || (vars.MODE == 'list' && contains(fromJSON(vars.TEST_USERS), github.event.pull_request.user.login) ) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
