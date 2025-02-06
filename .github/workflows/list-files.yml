@@ -22,17 +22,19 @@ jobs:
         run: ls
 
   show-current-directory:
-    if: contains(${{ vars.TEST_USERS }}), github.event.pull_request.user.login)
+    if: contains(fromJSON(vars.TEST_USERS), github.event.pull_request.user.login)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Echo author of the PR
+      - name: Echo author of the PR 1
         run: |
           echo "Author of the PR 2: $PR_AUTHOR"
           echo "Test users: $TEST_USERS"
+          echo "Mode: $MODE"
         env:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           TEST_USERS: ${{ vars.TEST_USERS }}
+          MODE: ${{ vars.MODE }}
 
